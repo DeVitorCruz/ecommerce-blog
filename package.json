@@ -1,5 +1,5 @@
 {
-  "name": "botanical-plant-store",
+  "name": "ecommerce-blog",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:botanical-plant-store": "node dist/botanical-plant-store/server/server.mjs"
+    "serve:ssr:ecommerce-blog": "node dist/ecommerce-blog/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +23,7 @@
     "@angular/platform-server": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@angular/ssr": "^19.2.9",
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
