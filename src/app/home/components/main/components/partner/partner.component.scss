@@ -1,0 +1,39 @@
+@use '_mixin' as mixin;
+@use '_mixin_2' as mixin2;
+@use '_breakpoints' as breakpoints;
+@use '_partnermixin' as partnermixin;
+
+.partner-column {
+    @include mixin.flex-item($flex: 100%, $max-width: 100%, $webkit-box-flex: 0);
+    @include mixin.relative-content();
+
+    .partner-slider {
+        @include mixin2.slick-slider();
+        @include mixin.container-flex($display: block, $flex-wrap: wrap);
+        
+        .slick-list {
+            @include mixin2.slick-list($position: relative,$display: block, $overflow: hidden, $margin: 0,$padding: 0);
+            
+            .carousel-track {
+                @include partnermixin.slide-wrapper();
+
+                .logo-content {
+                    @include partnermixin.logo-content($flex: 0 0 calc(100% / var(--num)));
+                    
+                    .logo-card {
+                        text-align: center;
+
+                        a {
+                            display: block;
+                            img {
+                                height: auto;
+                                max-width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

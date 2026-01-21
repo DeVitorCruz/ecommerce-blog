@@ -1,1 +1,23 @@
-<p>partner works!</p>
+<div class="partner-column">
+    <div class="partner-slider">
+        <div 
+            class="slick-list" 
+            [style.--num]="itemsPerView()"
+            [style.--period]="1000">
+            <div 
+                class="carousel-track"
+                [style.transform]="'translateX(-'+ currentOffset() +'%)'"
+                [style.transition]="isAnimating()? 'transform .5s ease-in-out' : 'none'"
+                (transitionend)="onTransitionEnd()"
+                >
+                <div *ngFor="let partner of visibleItems$ | async" class="logo-content">
+                    <div class="logo-card">
+                        <a href="#">
+                            <img [src]="partner.path" [alt]="partner.alt">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

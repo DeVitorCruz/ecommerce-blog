@@ -87,15 +87,27 @@ main {
     .product-carousel {
         @include mixin.features-contact-list(25px, 25px);
         @include mainmixin.main-breakpoint-features-product-carousel();
+
+        app-product-carousel {
+            color: #707070;
+        }
     }
 
     .partner {
         @include mixin.features-contact-list(50px, 25px);
         @include mainmixin.main-breakpoint-features-partner();
+        
+        app-partner {
+            @include mixin.justify-style-row();
+        }
     }
 
     .subscription {
-        @include mixin.features-contact-list(50px, 25px);
+        @include mixin.container-fluid();
         @include mainmixin.main-breakpoint-features-subscription();
+        
+        app-subscription {
+            @include subscriptionmixin.app-subscription-features();
+        }
     }
 }

@@ -1,0 +1,111 @@
+@use '_mixin' as mixin;
+@use '_productcarouselmixin' as productcarouselmixin;
+@use '_breakpoints' as breakpoints;
+@use '_mixin_2' as mixin2;
+
+header {
+    @include mixin.relative-content();
+    @include mixin.flex-item($flex: 100%, $max-width: 100%, $webkit-box-flex: 0);
+    @include productcarouselmixin.product-header-dimension($text-align: center, $margin-bottom: 35px, $display: block);
+
+    .title {
+        margin-bottom: 25px !important;
+        font-weight: 500;
+        @include mixin2.font-size-color-style($font-size: 25px, $line-height: 27px, $color: #333333);
+    
+        @include breakpoints.respond(ssm) {
+            @include mixin2.font-size-color-style($font-size: 30px, $line-height: 29px, $color: #333333);
+        }
+
+        @include breakpoints.respond(md) {
+            @include mixin2.font-size-color-style($font-size: 36px, $line-height: 29px, $color: #333333);
+        }
+    }
+
+    .header-border {
+        display: block !important;
+        text-align: center !important;
+        min-width: 100%;
+        margin-bottom: 16px !important;
+    
+        .img-screen {
+            width: 270px;
+
+            @include mixin.fill-height-img($max-width: 100%, $height: auto);
+        
+            @include breakpoints.respond(ssm) {
+                width: 370px;
+            }
+        }
+
+        @include breakpoints.respond(ssm) {
+            min-width: 370px;
+        }
+
+        @include breakpoints.respond(md) {
+            margin-bottom: 25px !important;
+        }
+    }
+
+    .text {
+        margin-top: 0;
+        margin-bottom: 30px !important;
+    }
+
+    .countdown {
+        .countdown-row {
+            @include mixin.justify-style-row();
+            @include mixin.justify-content($webkit-box-pack: center, $justify-content: center);
+
+            .countdown-section {
+                @include productcarouselmixin.countdown-section-style($min-width: 30px, $margin: 0 20px 0 0, $position: relative);
+
+                .countdown-amount {
+                    @include productcarouselmixin.countdown-amount-style($font-size: 25px, $line-height: 27px, $color: #5ba515, $font-weight: 700, $background: none, $border-top: none, $display: block, $padding: 0, $border-bottom: none);
+                
+                    @include breakpoints.respond(ssm) {
+                        @include productcarouselmixin.countdown-amount-style($font-size: 31px, $line-height: 33px, $color: #5ba515, $font-weight: 700, $background: none, $border-top: none, $display: block, $padding: 0, $border-bottom: none);
+                    }
+                }
+
+                .countdown-period {
+                    @include mixin2.font-size-color-style($font-size: 12px, $line-height: 14px, $color: #b2b2b2);
+                
+                    @include breakpoints.respond(ssm) {
+                        @include mixin2.font-size-color-style($font-size: 14px, $line-height: 17px, $color: #b2b2b2);
+                    }
+                }
+
+                @include breakpoints.respond(ssm) {
+                    @include productcarouselmixin.countdown-section-style($min-width: 50px, $margin: 0 50px 0 0, $position: relative);
+                }
+            }
+
+            .countdown-section:not(:last-child) {
+                &::before {
+                    @include productcarouselmixin.countdown-section-before($content: ":", $color: #5ba515, $font-size: 30px, $line-height: 35px, $position: absolute, $top: 0, $right: -14px, $bottom: auto, $left: auto);
+            
+                    @include breakpoints.respond(ssm) {
+                        @include productcarouselmixin.countdown-section-before($content: ":", $color: #5ba515, $font-size: 40px, $line-height: 35px, $position: absolute, $top: 0, $right: -30px, $bottom: auto, $left: auto);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.slider-content {
+    @include productcarouselmixin.slider-content();
+
+    @include breakpoints.respond(md) {
+        @include mixin2.padding-sizing-left-right($padding-left: 10px, $padding-right: 10px);
+    }
+
+    @include breakpoints.respond(lg) {
+        @include mixin2.padding-sizing-left-right($padding-left: 25px, $padding-right: 25px);
+    }
+
+    @include breakpoints.respond(xxlg) {
+        @include mixin2.padding-sizing-left-right($padding-left: 50px, $padding-right: 50px);
+    }
+}

@@ -1,0 +1,117 @@
+@use '_mixin' as mixin;
+@use '_mixin_2' as mixin2;
+@use '_breakpoints' as breakpoints;
+@use '_subscriptionmixin' as subscriptionmixin;
+
+.subscription-header {
+    @include subscriptionmixin.subscrition-header-features-vision();
+    @include mixin.container-fluid();
+    @include mixin.flex-item($flex: 100%, $max-width: 100%, $webkit-box-flex: 0);
+    
+    .title {
+        text-align: center !important;
+        margin-top: 0;
+        @include mixin2.heading-IV($font-size: 25px, $line-height: 27px, $color: #333333);
+
+        @include breakpoints.respond(ssm) {
+            @include mixin2.heading-IV($font-size: 30px, $line-height: 29px, $color: #333333);
+        }
+
+        @include breakpoints.respond(md) {
+            @include mixin2.heading-IV($font-size: 36px, $line-height: 29px, $color: #333333);
+        }
+    }
+
+    .header-border {
+        @include subscriptionmixin.subscrition-header-features-vision($display: block, $text-align: center, $margin-bottom: 16px);
+        min-width: 100%;
+
+        img {
+            @include subscriptionmixin.subscription-header-features-image($width: 270px, $max-width: 100%, $height: auto);
+        
+            @include breakpoints.respond(ssm) {
+                width: 370px;   
+            }
+        }
+        
+        @include breakpoints.respond(ssm) {
+            min-width: 370px;
+        }
+
+        @include breakpoints.respond(md) {
+            @include subscriptionmixin.subscrition-header-features-vision($display: block, $text-align: center, $margin-bottom: 25px);
+        }
+    }
+
+    .text {
+        margin-bottom: 16px !important;
+        color: #707070;
+
+        @include breakpoints.respond(sm) {
+            margin-bottom: 30px !important;   
+        }
+    }
+
+    @include breakpoints.respond(sm) {
+        margin-bottom: 45px !important;
+    }
+}
+
+form {
+    @include mixin.container-flex($display: flex, $flex-wrap: wrap);
+    @include mixin2.features-contact-list-left-right($overflow: hidden, $margin-left: auto, $margin-right: auto);
+    @include mixin2.heading-IV($font-size: 14px, $line-height: 16px, $color: #bebebe);
+
+    input {
+        @include subscriptionmixin.subscription-input();
+        @include subscriptionmixin.subscription-input-dimension();
+        @include subscriptionmixin.subscription-form-control($width: 100%, $height: 50px, $background: #fff, $margin: 0 0 20px, $border-radius: 40px);
+    
+        &:focus {
+            border: none !important;  
+            outline: none;
+        }
+
+        @include breakpoints.respond(ssm) {
+            @include subscriptionmixin.subscription-form-control($width: 65%, $height: 50px, $background: #fff, $margin: 0, $border-radius: 0);   
+        }
+
+        @include breakpoints.respond(sm) {
+            @include subscriptionmixin.subscription-form-control($width: 62%, $height: 50px, $background: #fff, $margin: 0, $border-radius: 0);   
+        }
+
+        @include breakpoints.respond(md) {
+            @include subscriptionmixin.subscription-form-control($width: 69.6%, $height: 50px, $background: #fff, $margin: 0, $border-radius: 0);   
+        }
+    }
+
+    .btn {
+        @include subscriptionmixin.subscription-btn();
+        @include mixin.padding-sizing-top-bottom($padding-bottom: 16px, $padding-top: 16px);
+        @include mixin2.padding-sizing-left-right($padding-left: 20px, $padding-right: 20px);
+        @include mixin2.heading-font-style($font-weight: bold, $color: #fff, $font-size: 16px, $line-height: 18px);
+        @include subscriptionmixin.subscription-btn-features();
+        min-width: 140px;
+        
+        i {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        @include breakpoints.respond(ssm) {
+            box-shadow: 11px 1px 18px 15px rgba(0, 0, 0, .1);
+        }
+
+        @include breakpoints.respond(sm) {
+            min-width: 180px;
+        }
+    }
+
+    @include breakpoints.respond(ssm) {
+        @include subscriptionmixin.subscription-email($height: 52px, $border-radius: 40px, $background: #fff);
+    }
+
+    @include breakpoints.respond(md) {
+        width: 595px;
+    }
+}

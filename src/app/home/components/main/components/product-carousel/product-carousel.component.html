@@ -1,1 +1,28 @@
-<p>product-carousel works!</p>
+<header>
+    <h1 class="title">Daily Deal</h1>
+    <span class="header-border">
+        <img src="assets/product-carousel/hbdr.png" alt="Header Border" class="img-screen">
+    </span>
+    <p class="text">There are many variations of passages of lorem ipsum available.</p>
+    <div class="countdown">
+        <span class="countdown-row">
+            <span class="countdown-section">
+                <span class="countdown-amount">0</span>
+                <span class="countdown-period">Hours</span>
+            </span>
+            <span class="countdown-section">
+                <span class="countdown-amount">0</span>
+                <span class="countdown-period">Minutes</span>
+            </span>
+            <span class="countdown-section">
+                <span class="countdown-amount">0</span>
+                <span class="countdown-period">Seconds</span>
+            </span>
+        </span>
+    </div>
+</header>
+<div class="slider-content">
+    <app-slick-list
+        [product_list]="product_list"
+        [config]="config"></app-slick-list>
+</div>

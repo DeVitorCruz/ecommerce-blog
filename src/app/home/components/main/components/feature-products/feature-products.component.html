@@ -12,61 +12,8 @@
         <div 
             class="product-card"
             *ngFor="let product of featureProductContent.productGrid">
-            <mat-card appearance="outlined">
-                <img mat-card-image [src]="product.imgPath" [alt]="product.imgAlt">
-                <mat-card-content>
-                    <span class="title">
-                        <a href="#">
-                            {{ product.title }}
-                        </a>
-                    </span>
-                    <span class="price">
-                        <del>75.00</del>
-                        {{ product.price }}$
-                    </span>
-                </mat-card-content>
-                <ul class="card-product-list">
-                    <li class="item">
-                        <a href="#">
-                            <mat-icon
-                                aria-hidden="false"
-                                aria-label="Home"
-                                svgIcon="heart-regular"></mat-icon>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="#">
-                            <mat-icon 
-                                aria-hidden="false" 
-                                aria-label="Home" 
-                                svgIcon="eye-regular"></mat-icon>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="#">
-                            <mat-icon 
-                                aria-hidden="false" 
-                                aria-label="Home" 
-                                svgIcon="cart-shopping-solid"></mat-icon>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="#">
-                            <mat-icon 
-                                aria-hidden="false" 
-                                aria-label="Home" 
-                                svgIcon="arrow-right-arrow-left-solid"></mat-icon>
-                        </a>
-                    </li>
-                </ul>
-                <mat-card-footer>
-                    <mat-chip-set aria-label="Fish selection">
-                        <mat-chip color="accent" selected>
-                            {{ product.badge }}
-                        </mat-chip>
-                    </mat-chip-set>
-                </mat-card-footer>
-            </mat-card>
+            <app-product-card
+            [product]="product"></app-product-card> 
         </div>
     </div>
 </ng-container>
