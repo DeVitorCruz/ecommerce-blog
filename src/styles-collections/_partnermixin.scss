@@ -1,0 +1,11 @@
+@mixin slide-wrapper() {
+    display: flex;
+    transition: transform .5s ease-in-out;
+    will-change: transform;
+}
+
+@mixin logo-content(
+    $flex: 0 0 calc(100% / var(--num))
+) {
+    flex: $flex;
+}

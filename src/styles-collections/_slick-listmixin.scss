@@ -1,0 +1,41 @@
+@mixin slick-dots(
+    $margin: 0,
+    $padding: 0,
+    $text-align: center,
+) {
+    margin: $margin;
+    padding: $padding;
+    text-align: $text-align; 
+}
+
+@mixin slick-dots-span() {
+    width: 10px;
+    height: 10px;
+    background-color: gray;
+    margin: 0 4px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+@mixin carousel() {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+@mixin carousel-track-container() {
+    overflow: hidden;
+    width: 100%;
+}
+
+@mixin carousel-track() {
+    display: flex;
+    transition: transform .5s ease-in-out;
+    will-change: transform;
+}
+
+@mixin carousel-item() {
+    flex: 0 0 auto;
+    width: 100%;
+}
