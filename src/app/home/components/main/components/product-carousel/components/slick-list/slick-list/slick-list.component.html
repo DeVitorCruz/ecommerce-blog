@@ -1,0 +1,35 @@
+<div 
+    class="carousel"
+    (mouseenter)="pause()"
+    (mouseleave)="resume()">
+    <button 
+        mat-icon-button 
+        class="arrow left"
+        (click)="prev()"
+        *ngIf="config.showArrows">
+        <mat-icon>chevron_left</mat-icon>
+    </button>
+    <div class="carousel-track-container">
+        <div 
+            class="carousel-track"
+            [style.transform]="'translateX(-' + currentOffset() + '%)'"
+            [style.transition]="isAnimating()? 'transform .5s ease-in-out' : 'none'">
+            <app-product-card
+                *ngFor="let product of product_list"
+                [product]="product"></app-product-card>
+        </div>
+    </div>
+    <button 
+        mat-icon-button 
+        class="arrow right" 
+        (click)="next()" 
+        *ngIf="config.showArrows">
+        <mat-icon>chevron_right</mat-icon>
+    </button>
+    <div class="slick-dots" *ngIf="config.showDots">
+        <span
+            *ngFor="let dot of [].constructor(1 + groupCount); let i = index"
+            [class.active]="i === currentGroup()"
+            (click)="goToGroup(i)"></span>
+    </div>
+</div>

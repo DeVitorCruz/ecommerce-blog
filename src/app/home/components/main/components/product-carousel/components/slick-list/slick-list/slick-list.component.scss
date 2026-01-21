@@ -1,0 +1,61 @@
+@use '_slick-listmixin' as slick_listmixin;
+@use '_mixin_2' as mixin2;
+@use '_mixin' as mixin;
+@use '_breakpoints' as breakpoints;
+
+.carousel {
+    @include slick_listmixin.carousel();
+
+    .carousel-track-container {
+        @include slick_listmixin.carousel-track-container();
+
+        .carousel-track {
+            @include slick_listmixin.carousel-track();
+            
+            app-product-card {
+                @include slick_listmixin.carousel-item();
+                @include mixin2.padding-sizing-left-right($padding-left: 16px, $padding-right: 16px);
+                margin-bottom: 30px !important;
+                
+                @include breakpoints.respond(ssm) {
+                    width: 50%;
+                };
+
+                @include breakpoints.respond(lg) {
+                    width: 25%;
+                }
+
+                @include breakpoints.respond(xxxlg) {
+                    width: 20%;
+                }
+            }
+        }
+    }
+
+    .slick-dots {
+        @include slick_listmixin.slick-dots($margin: 0, $padding: 0, $text-align: center);
+        @include mixin.container-flex($display: flex, $flex-wrap: nowrap);
+        @include mixin.justify-content($webkit-box-pack: center, $justify-content: center);
+        margin-top: 1rem;
+    
+        span {
+            @include slick_listmixin.slick-dots-span();
+            
+            &.active {
+                background-color: #3f51b5;
+            }
+        }
+    }
+
+    .arrow {
+        @include mixin2.arrow();
+
+        &.left {
+            left: 0;
+        }
+
+        &.right {
+            right: 0;
+        }
+    }
+}
