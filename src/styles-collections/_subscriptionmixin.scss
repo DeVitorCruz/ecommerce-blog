@@ -1,4 +1,104 @@
-@mixin padding-sizing-top-bottom($padding-right: 70px, $padding-left: 70px) {
+@use '_mixin' as mixin;
+@use '_breakpoints' as breakpoints;
+
+@mixin padding-sizing-right-left($padding-right: 70px, $padding-left: 70px) {
     padding-right: $padding-right !important;
     padding-left: $padding-left !important;
+}
+
+@mixin app-subscription-features() {
+    display: block;
+    min-height: 330px;
+    @include mixin.relative-content();
+    @include mixin.flex-item($flex: 100%, $max-width: 100%, $webkit-box-flex: 0);
+    @include mixin.padding-sizing-top-bottom($padding-bottom: 25px, $padding-top: 50px);
+
+    @include breakpoints.respond(md) {
+        min-height: 380px;
+        @include mixin.padding-sizing-top-bottom($padding-bottom: 40px, $padding-top: 80px);
+    }
+
+    @include breakpoints.respond(lg) {
+        min-height: 420px;
+        padding-top: 100px !important;
+    }
+
+    @include breakpoints.respond(xxlg) {
+        min-height: 466px;
+        @include mixin.padding-sizing-top-bottom($padding-bottom: 60px, $padding-top: 120px);
+    }
+}
+
+@mixin subscrition-header-features-vision(
+    $display: block,
+    $text-align: center,
+    $margin-bottom: 30px
+) {
+    display: $display;
+    text-align: $text-align !important;
+    margin-bottom: $margin-bottom !important;
+}
+
+@mixin subscription-header-features-image(
+    $width: 270px,
+    $max-width: 100%,
+    $height: auto) {
+    width: $width;
+    max-width: $max-width;
+    height: $height;
+}
+
+@mixin subscription-email(
+    $height: 52px,
+    $border-radius: 40px,
+    $background: #fff) {
+    height: $height;
+    border-radius: $border-radius;
+    background: $background;
+}
+
+@mixin subscription-input() {
+    display: block;
+    padding: 5px 15px;
+    font-size: .9375rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #343a40;
+    box-shadow: none;
+    transition: border-color .3s ease, box-shadow .3s ease, -webkit-box-shadow .3s ease;
+}
+
+@mixin subscription-input-dimension() {
+    border: 0 !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+@mixin subscription-form-control(
+    $width: 100%,
+    $height: 50px,
+    $background: #fff,
+    $margin: 0 0 20px,
+    $border-radius: 40px
+) {
+    width: $width;
+    height: $height;
+    background: $background;
+    margin: $margin;
+    border-radius: $border-radius;
+}
+
+@mixin subscription-btn() {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    transition: color .3s ease, background-color .3s ease, border-color .3s ease, box-shadow .3s ease, -webkit-box-shadow .3s ease;
+}
+
+@mixin subscription-btn-features() {
+    cursor: pointer;
+    border-radius: 40px;
+    background-color: #5ba515;
 }

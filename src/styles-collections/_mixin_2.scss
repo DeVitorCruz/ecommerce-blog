@@ -42,3 +42,53 @@
     line-height: $line-height;
     color: $color;
 }
+
+@mixin arrow() {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    background-color: white;
+    transform: translateY(-50%);
+}
+
+@mixin slick-slider() {
+    position: relative;
+    box-sizing: border-box;
+    user-select: none;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@mixin slick-list(
+    $position: relative,
+    $display: block,
+    $overflow: hidden,
+    $margin: 0,
+    $padding: 0
+) {
+    position: $position;
+    display: $display;
+    overflow: $overflow;
+    margin: $margin;
+    padding: $padding;
+}
+
+@mixin heading-IV(
+    $font-size: 25px,
+    $line-height: 27px,
+    $color: #333333
+) {
+    font-size: 25px;
+    line-height: 27px;
+    color: #333333;
+}
+
+@mixin features-contact-list-left-right(
+    $overflow: hidden,
+    $margin-left: auto,
+    $margin-right: auto
+) {
+    overflow: $overflow !important;
+    margin-left: $margin-left !important;
+    margin-right: $margin-right !important;
+}

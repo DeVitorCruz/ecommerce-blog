@@ -9,7 +9,7 @@
 
 @mixin container-flex(
     $display: flex,
-    $flex-wrap: wrap,
+    $flex-wrap: wrap
 ) {
     display: $display !important;
     flex-wrap: $flex-wrap;

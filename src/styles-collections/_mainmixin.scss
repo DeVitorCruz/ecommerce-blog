@@ -107,12 +107,10 @@
 
 @mixin main-breakpoint-features-subscription() {
     @include breakpoints.respond(lg) {
-        max-width: 960px;
-        @include subscriptionmixin.padding-sizing-top-bottom(70px, 70px);
+        @include subscriptionmixin.padding-sizing-right-left(70px, 70px);
     }
 
     @include breakpoints.respond(xxlg) {
-        max-width: 1200px;
-        @include subscriptionmixin.padding-sizing-top-bottom(100px, 100px);
+        @include subscriptionmixin.padding-sizing-right-left(100px, 100px);
     }
 }
